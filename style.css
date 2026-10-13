@@ -1,3 +1,4 @@
+
 :root {
   --creme: #FBF6EE;
   --off: #FFFCF7;
@@ -21,6 +22,7 @@
   --altura-cabecalho: 68px;
 }
 
+/* ---------- 2. Base e utilitários ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -35,7 +37,7 @@ body {
   line-height: 1.6;
   color: var(--marrom);
   background-color: var(--creme);
-  
+  /* textura de papel muito sutil, desenhada em SVG (sem arquivo extra) */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .31 0 0 0 0 .21 0 0 0 0 .18 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -78,11 +80,11 @@ a { color: var(--rosa-queimado-escuro); }
 
 .texto-suave { color: var(--marrom-suave); }
 
-
+/* rolagem suave leva em conta o cabeçalho fixo */
 #como-funciona, #exemplo, #criar, #topo { scroll-margin-top: calc(var(--altura-cabecalho) + 8px); }
 #conteudo:focus { outline: none; }
 
-
+/* ---------- 3. Botões ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
   font: 600 1rem/1.2 var(--fonte-texto);
@@ -104,7 +106,7 @@ a { color: var(--rosa-queimado-escuro); }
 .btn--suave { background: var(--rosa-pastel); color: var(--rosa-queimado-escuro); border-color: var(--rosa-pastel); }
 .btn--suave:hover { background: var(--rosa-medio); border-color: var(--rosa-medio); }
 
-
+/* ---------- 4. Cabeçalho e início ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
   height: var(--altura-cabecalho);
@@ -168,7 +170,7 @@ a { color: var(--rosa-queimado-escuro); }
 .aviso p { margin: 0; }
 .aviso-fechar { font: inherit; font-weight: 600; background: none; border: 0; color: var(--rosa-queimado-escuro); cursor: pointer; text-decoration: underline; }
 
-
+/* Hero */
 .hero { padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem); }
 .hero-grade { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .hero h1 { font-size: clamp(2.5rem, 5.4vw, 4.1rem); font-weight: 500; }
@@ -199,7 +201,7 @@ a { color: var(--rosa-queimado-escuro); }
   .hero-arte { order: -1; width: min(78%, 340px); }
 }
 
-
+/* ---------- 5. Seções, como funciona e exemplo ---------- */
 .secao { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .secao--papel { background-color: var(--papel); border-block: 1px dashed #D8C3AD; }
 .titulo-secao { font-size: clamp(1.9rem, 3.8vw, 2.7rem); max-width: 18em; }
@@ -232,7 +234,7 @@ a { color: var(--rosa-queimado-escuro); }
 .exemplo-texto p { max-width: 30em; margin-top: 1rem; }
 .exemplo-texto .btn { margin-top: .75rem; }
 .exemplo-moldura { position: relative; justify-self: center; width: 100%; max-width: 380px; }
-.exemplo-moldura::before {                     
+.exemplo-moldura::before {                     /* fita adesiva */
   content: ""; position: absolute; z-index: 2; top: -.7rem; left: 50%;
   width: 96px; height: 28px; margin-left: -48px; transform: rotate(-3deg);
   background: rgba(232, 180, 179, .8);
@@ -250,7 +252,7 @@ a { color: var(--rosa-queimado-escuro); }
   .exemplo-grade { grid-template-columns: 1fr; }
 }
 
-
+/* ---------- 6. Editor e formulário ---------- */
 .editor-abas { display: none; gap: .5rem; margin: 1.5rem 0 0; }
 .editor-aba {
   flex: 1; font: 600 .98rem var(--fonte-texto); padding: .7rem 1rem; cursor: pointer;
@@ -330,7 +332,12 @@ input[readonly] { background: var(--papel); }
 .rodape-marca { font-family: var(--fonte-titulo); font-style: italic; font-size: 1.5rem; margin-bottom: .25rem; }
 .rodape p:last-child { margin: 0; font-size: .92rem; }
 
-
+/* ==========================================================================
+   7. PRESENTE (.gift)
+   Funciona em três lugares: tela cheia (link recebido), moldura de exemplo
+   e pré-visualização. Por isso usa container queries (medidas relativas ao
+   próprio presente, e não à janela do navegador).
+   ========================================================================== */
 .gift {
   container-type: inline-size;
   position: relative;
@@ -355,7 +362,7 @@ input[readonly] { background: var(--papel); }
   border: 1.5px dashed var(--rosa-medio); border-radius: 16px; color: var(--marrom-suave); font-size: .98rem;
 }
 
-
+/* --- boas-vindas --- */
 .gift-welcome { padding: 2.5rem 1.25rem 1.5rem; }
 .gift-arch {
   position: relative; overflow: hidden; width: min(100%, 440px); margin-inline: auto;
@@ -385,6 +392,7 @@ input[readonly] { background: var(--papel); }
   100% { transform: translate(var(--desvio, 14px), -26rem) rotate(10deg); opacity: 0; }
 }
 
+/* --- contador --- */
 .contador-intro { color: var(--marrom-suave); margin: 0 0 .25rem; }
 .contador-numero { margin: 0; display: flex; align-items: baseline; justify-content: center; gap: .6rem; flex-wrap: wrap; line-height: 1; }
 .contador-valor { font-family: var(--fonte-titulo); font-weight: 600; font-size: 4.5rem; font-size: clamp(3.8rem, 24cqi, 6.5rem); color: var(--rosa-queimado); letter-spacing: -.03em; font-variant-numeric: lining-nums; }
@@ -392,6 +400,7 @@ input[readonly] { background: var(--papel); }
 .contador-detalhe { margin: .75rem 0 0; color: var(--marrom-suave); }
 .contador-detalhe:empty { display: none; }
 
+/* --- fotos --- */
 .gift-fotos { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; padding: .5rem 0 1rem; }
 .polaroid {
   --giro: -2deg;
@@ -400,7 +409,7 @@ input[readonly] { background: var(--papel); }
   box-shadow: var(--sombra);
   transform: rotate(var(--giro));
 }
-.polaroid::before {                         
+.polaroid::before {                         /* fita adesiva */
   content: ""; position: absolute; top: -11px; left: 50%; width: 64px; height: 22px; margin-left: -32px;
   background: rgba(232, 180, 179, .75); transform: rotate(-3deg);
 }
@@ -421,7 +430,7 @@ input[readonly] { background: var(--papel); }
   .gift-fotos .polaroid:nth-child(even) { margin-top: 1.75rem; }
 }
 
-
+/* --- carta --- */
 .carta-palco { padding-top: 5.3rem; }
 .envelope {
   display: block; width: min(320px, 86%); margin: 0 auto; padding: 0; border: 0; background: none;
@@ -475,6 +484,7 @@ input[readonly] { background: var(--papel); }
 .carta-texto { margin: 0; font-family: var(--fonte-titulo); font-size: 1.08rem; line-height: var(--lh); white-space: pre-line; overflow-wrap: anywhere; }
 .carta-assinatura { margin: var(--lh) 0 0; font-family: var(--fonte-mao); font-size: 1.7rem; line-height: var(--lh); text-align: right; color: var(--rosa-queimado-escuro); }
 
+/* --- surpresa --- */
 .surpresa-palco { position: relative; min-height: 4rem; }
 .surpresa-cartao {
   margin: 0 auto; max-width: 440px; padding: 1.6rem 1.5rem;
@@ -500,6 +510,7 @@ input[readonly] { background: var(--papel); }
   100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1.1); }
 }
 
+/* --- rodapé e música --- */
 .gift-rodape { padding: 1.5rem 1.5rem 2rem; font-size: .92rem; color: var(--marrom-suave); }
 .gift-rodape p { margin: 0 0 .25rem; }
 
@@ -516,6 +527,7 @@ input[readonly] { background: var(--papel); }
 .musica-pilula.tocando { background: var(--rosa-pastel); }
 .musica-pilula.com-erro { color: var(--erro); border-color: var(--erro); }
 
+/* ---------- 8. Movimento reduzido e ajustes finais ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -530,6 +542,7 @@ input[readonly] { background: var(--papel); }
 }
 
 
+/* ---------- Biblioteca de ocasiões, modelos e cartas ---------- */
 .opcoes-ocasiao, .opcoes-modelo { display: grid; gap: .75rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .opcao-card, .modelo-card { display: flex; flex-direction: column; position: relative; min-width: 0; padding: .9rem; border: 1.5px solid var(--linha); border-radius: 15px; background: var(--off); cursor: pointer; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
 .opcao-card:hover, .modelo-card:hover { transform: translateY(-2px); border-color: var(--rosa-medio); }
@@ -554,6 +567,7 @@ input[readonly] { background: var(--papel); }
 .modelo-festa .modelo-amostra { background: #f5d9b6; color: #714a37; }
 select { width: 100%; font: inherit; color: var(--marrom); padding: .8rem .95rem; background: var(--off); border: 1.5px solid var(--linha); border-radius: 12px; }
 select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-shadow: 0 0 0 4px rgba(176,80,95,.2); }
+/* O modelo escolhido acompanha o presente tanto na prévia quanto no link final. */
 .gift[data-modelo="album"] .gift-arch { border-radius: 24px; background: #ead9c6; }
 .gift[data-modelo="album"] .gift-fotos { gap: 1rem; }
 .gift[data-modelo="album"] .polaroid { transform: none; border: 1px solid #ddc7ad; }
@@ -572,9 +586,10 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 @media (max-width: 640px) { .opcoes-ocasiao { grid-template-columns: repeat(2, minmax(0,1fr)); } .opcoes-modelo { grid-template-columns: repeat(2, minmax(0,1fr)); } .opcao-card, .modelo-card { padding: .7rem; } .modelo-amostra { min-height: 92px; } }
 @media (prefers-reduced-motion: reduce) { .opcao-card, .modelo-card { transition: none; } .opcao-card:hover, .modelo-card:hover { transform: none; } }
 
+/* ---------- Temas mais marcantes: o modelo altera a composição, não só o tom ---------- */
 .gift { transition: background-color .25s ease, color .25s ease; }
 .gift .gift-arch { position: relative; isolation: isolate; overflow: hidden; transition: border-radius .25s ease, background .25s ease, border .25s ease; }
-.gift .gift-arch::before { content: 'â™¡'; position: absolute; z-index: -1; right: 7%; top: 4%; font-size: clamp(4rem, 10vw, 8rem); line-height: 1; opacity: .12; font-family: Georgia, serif; pointer-events: none; }
+.gift .gift-arch::before { content: '♡'; position: absolute; z-index: -1; right: 7%; top: 4%; font-size: clamp(4rem, 10vw, 8rem); line-height: 1; opacity: .12; font-family: Georgia, serif; pointer-events: none; }
 .gift[data-modelo="nosso"] .gift-arch { border-radius: 48% 48% 22px 22px; box-shadow: inset 0 0 0 8px rgba(255,255,255,.22); }
 .gift[data-modelo="album"] .gift-arch { border-radius: 8px; box-shadow: 8px 8px 0 #d4bea5; }
 .gift[data-modelo="album"] .gift-title { font-family: Georgia, serif; letter-spacing: .04em; }
@@ -583,13 +598,13 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 .gift[data-modelo="carta"] .gift-title { font-family: 'Brush Script MT', 'Segoe Script', cursive; font-size: clamp(2rem, 4vw, 3.2rem); }
 .gift[data-modelo="ceu"] { background: radial-gradient(ellipse at 50% 0%, #3c4d70 0, #1c263d 68%); color: #f6e9c8; }
 .gift[data-modelo="ceu"] .gift-arch { border-radius: 6px; background: linear-gradient(160deg, #283653, #111827); box-shadow: inset 0 0 0 1px #d7bb77, 0 0 34px rgba(215,187,119,.12); }
-.gift[data-modelo="ceu"] .gift-arch::before { content: 'âœ¦  Â·  âœ§  Â·  âœ¦'; right: 4%; top: 7%; width: 92%; text-align: center; font-size: 1.5rem; letter-spacing: .8em; color: #e7cb84; opacity: .8; }
+.gift[data-modelo="ceu"] .gift-arch::before { content: '✦  ·  ✧  ·  ✦'; right: 4%; top: 7%; width: 92%; text-align: center; font-size: 1.5rem; letter-spacing: .8em; color: #e7cb84; opacity: .8; }
 .gift[data-modelo="ceu"] .gift-title { color: #f4d991; letter-spacing: .08em; }
 .gift[data-modelo="jardim"] .gift-arch { border-radius: 48% 48% 12px 12px; background: linear-gradient(145deg, #edf1e5, #d5e1cd); border: 1px solid #a7b89b; }
-.gift[data-modelo="jardim"] .gift-arch::before { content: 'â€  â'; color: #66815e; opacity: .35; letter-spacing: .4em; }
+.gift[data-modelo="jardim"] .gift-arch::before { content: '❀  ❁'; color: #66815e; opacity: .35; letter-spacing: .4em; }
 .gift[data-modelo="jardim"] .gift-title { color: #405b45; font-family: Georgia, serif; font-style: italic; }
 .gift[data-modelo="scrap"] .gift-arch { border: 2px dashed #ad8a6e; border-radius: 5px; background: #f0e0c7; box-shadow: 7px 7px 0 #d9c09d; }
-.gift[data-modelo="scrap"] .gift-arch::before { content: 'âœ‚  â˜…  â™¡'; top: auto; bottom: 2%; right: 3%; font-size: 2rem; opacity: .35; }
+.gift[data-modelo="scrap"] .gift-arch::before { content: '✂  ★  ♡'; top: auto; bottom: 2%; right: 3%; font-size: 2rem; opacity: .35; }
 .gift[data-modelo="scrap"] .polaroid:nth-child(odd) { transform: rotate(-4deg) translateY(4px) !important; }
 .gift[data-modelo="scrap"] .polaroid:nth-child(even) { transform: rotate(4deg) translateY(-3px) !important; }
 .gift[data-modelo="minimal"] { background: #f8f6f0; color: #35332f; }
@@ -599,18 +614,20 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 .gift[data-modelo="minimal"] .polaroid { box-shadow: none !important; border: 1px solid #cfc5b6; transform: none !important; }
 .gift[data-modelo="festa"] .gift-arch { border-radius: 18px 18px 4px 4px; background: repeating-linear-gradient(135deg, #f5d9b6 0 18px, #f9e7d0 18px 36px); border: 2px solid #d2a06b; }
 .gift[data-modelo="festa"] .gift-title { color: #714a37; text-transform: uppercase; letter-spacing: .08em; }
-.gift[data-modelo="festa"] .gift-arch::before { content: 'âœ¦  âœ§  âœ¦'; right: 0; width: 100%; text-align: center; font-size: 2rem; opacity: .55; }
+.gift[data-modelo="festa"] .gift-arch::before { content: '✦  ✧  ✦'; right: 0; width: 100%; text-align: center; font-size: 2rem; opacity: .55; }
 
+/* A ocasião também deixa uma identidade clara no presente final/prévia. */
 .gift[data-ocasiao="namoro"] .gift-title { color: var(--rosa-queimado-escuro); }
 .gift[data-ocasiao="aniversario"] .gift-arch { border-bottom: 5px solid #d6a45f; }
-.gift[data-ocasiao="aniversario"] .gift-arch::before { content: 'âœ¦  âœ§  âœ¦'; color: #b77a36; opacity: .55; }
+.gift[data-ocasiao="aniversario"] .gift-arch::before { content: '✦  ✧  ✦'; color: #b77a36; opacity: .55; }
 .gift[data-ocasiao="casamento"] .gift-arch { border: 1px solid #c6ad78; box-shadow: inset 0 0 0 5px rgba(198,173,120,.14); }
 .gift[data-ocasiao="casamento"] .gift-title { font-family: Georgia, serif; font-style: italic; }
 .gift[data-ocasiao="amizade"] .gift-arch { border-radius: 24px; }
-.gift[data-ocasiao="amizade"] .gift-arch::before { content: 'âœ¿  â€'; color: #718b66; opacity: .45; }
+.gift[data-ocasiao="amizade"] .gift-arch::before { content: '✿  ❀'; color: #718b66; opacity: .45; }
 .gift[data-ocasiao="agradecimento"] .gift-arch { border-left: 5px solid #b3a27a; }
 .gift[data-ocasiao="desculpas"] .gift-arch { border-radius: 8px; border: 1px dashed #b99c98; }
 
+/* ---------- Redesign visual: modelos mais elegantes e realmente distintos ---------- */
 .opcoes-modelo { gap: 1rem; }
 .modelo-card {
   padding: .7rem; border: 1px solid #e9dfd8; border-radius: 18px;
@@ -630,40 +647,41 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 .modelo-card > strong { font-size: .9rem; color: #493a36; }
 .modelo-card > small { color: #8b7770; font-size: .76rem; }
 
-
+/* 1. Nosso Cantinho — editorial romântico, rosa antigo e moldura delicada */
 .modelo-nosso .modelo-amostra { color: #79515a; background: #f4e2e1; border: 1px solid #e7c9c8; }
 .modelo-nosso .modelo-amostra::before { inset: 9px; border: 1px solid rgba(151,93,105,.35); border-radius: 8px; opacity: 1; }
 .modelo-nosso .modelo-amostra i { color: #b56e7d; font-size: 1.5rem; }
-
+/* 2. Álbum — papel creme, fotografias instantâneas inclinadas */
 .modelo-album .modelo-amostra { color: #594b3d; background: #e9ddca; }
 .modelo-album .modelo-amostra::before { inset: 18px 23% 12px; background: #fffaf0; box-shadow: -36px 9px 0 -5px #fffaf0, 36px 5px 0 -5px #fffaf0; transform: rotate(-5deg); opacity: .95; }
 .modelo-album .modelo-amostra i { padding: .18rem .5rem .45rem; background: #fffaf0; box-shadow: 0 2px 7px #b8a58c; transform: rotate(-4deg); }
-
+/* 3. Carta — folha de papel, linhas suaves e assinatura */
 .modelo-carta .modelo-amostra { color: #5e5148; background: #fffdf7; border: 1px solid #e6ddd0; border-radius: 4px; }
 .modelo-carta .modelo-amostra::before { background: repeating-linear-gradient(to bottom, transparent 0 22px, #d8dce0 23px 24px); opacity: .65; }
 .modelo-carta .modelo-amostra b { font-family: Georgia, serif; font-style: italic; font-size: 1.3rem; }
-
+/* 4. Céu — noite azul profunda com estrelas douradas */
 .modelo-ceu .modelo-amostra { color: #f7e9c5; background: radial-gradient(ellipse at 50% 0%, #455779, #1d2940 78%); border: 1px solid #56617b; }
-.modelo-ceu .modelo-amostra::before { content: 'âœ¦   Â·   âœ§      Â·   âœ¦'; inset: 14px 0 auto; text-align: center; font-size: 1rem; color: #e8ce8b; opacity: .85; }
+.modelo-ceu .modelo-amostra::before { content: '✦   ·   ✧      ·   ✦'; inset: 14px 0 auto; text-align: center; font-size: 1rem; color: #e8ce8b; opacity: .85; }
 .modelo-ceu .modelo-amostra i { margin-top: .6rem; color: #f3d68e; font-size: 1.7rem; }
-
+/* 5. Jardim — verde sálvia e flores discretas */
 .modelo-jardim .modelo-amostra { color: #526a50; background: linear-gradient(145deg, #f0f2e8, #dce6d5); border: 1px solid #d0ddc8; }
-.modelo-jardim .modelo-amostra::before { content: 'â€     â'; inset: auto 0 8px; text-align: center; color: #77906e; font-size: 1.7rem; opacity: .6; }
+.modelo-jardim .modelo-amostra::before { content: '❀     ❁'; inset: auto 0 8px; text-align: center; color: #77906e; font-size: 1.7rem; opacity: .6; }
 .modelo-jardim .modelo-amostra i { color: #7c9871; }
-
+/* 6. Scrapbook — colagem artesanal, fita e fotos */
 .modelo-scrap .modelo-amostra { color: #72543f; background: #f0e2cf; border: 1px dashed #c4a687; border-radius: 5px; transform: none; }
 .modelo-scrap .modelo-amostra::before { inset: 16px 24% 14px; background: #fffaf0; box-shadow: -31px 9px 0 -5px #fffaf0, 31px 5px 0 -5px #fffaf0; transform: rotate(4deg); opacity: .95; }
 .modelo-scrap .modelo-amostra i { color: #ad8064; }
-
+/* 7. Minimalista — tipografia limpa e espaço em branco */
 .modelo-minimal .modelo-amostra { color: #393a37; background: #f7f6f1; border-radius: 3px; border: 0; border-block: 1px solid #d8d5cc; }
 .modelo-minimal .modelo-amostra::before { inset: 15px 12px; border: 1px solid #e1ded5; opacity: 1; }
 .modelo-minimal .modelo-amostra i { font-size: 1.5rem; color: #777a70; }
 .modelo-minimal .modelo-amostra b { font-family: Arial, sans-serif; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; }
-
+/* 8. Celebração — festa delicada, pêssego e pequenos confetes */
 .modelo-festa .modelo-amostra { color: #80533f; background: #f8e4d4; border: 1px solid #efd0b9; }
-.modelo-festa .modelo-amostra::before { content: 'âœ¦  Â·  âœ§  Â·  âœ¦'; inset: 12px 0 auto; text-align: center; color: #c18d55; font-size: 1rem; opacity: .8; }
+.modelo-festa .modelo-amostra::before { content: '✦  ·  ✧  ·  ✦'; inset: 12px 0 auto; text-align: center; color: #c18d55; font-size: 1rem; opacity: .8; }
 .modelo-festa .modelo-amostra i { margin-top: .5rem; color: #bd835d; }
 
+/* A prévia acompanha a linguagem visual de cada cartão, sem depender só da cor. */
 .gift { --tema-fundo: #fffaf8; --tema-texto: #5d4546; --tema-destaque: #b66d7b; background: var(--tema-fundo); color: var(--tema-texto); }
 .gift .gift-welcome { position: relative; }
 .gift .gift-arch { border-radius: 24px; padding: clamp(1.5rem, 4vw, 3rem); transition: all .28s ease; }
@@ -673,7 +691,7 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 .gift .polaroid { transition: transform .25s ease, box-shadow .25s ease; }
 .gift[data-modelo="nosso"] { --tema-fundo: #fff7f6; --tema-texto: #664b50; --tema-destaque: #b66d7b; }
 .gift[data-modelo="nosso"] .gift-arch { background: linear-gradient(145deg,#fffdfb,#f5e3e3); border: 1px solid #e9cecf; box-shadow: inset 0 0 0 7px rgba(255,255,255,.48), 0 14px 34px rgba(126,75,83,.08); }
-.gift[data-modelo="nosso"] .gift-arch::before { content: 'â™¡'; color: #c9828d; opacity: .15; }
+.gift[data-modelo="nosso"] .gift-arch::before { content: '♡'; color: #c9828d; opacity: .15; }
 .gift[data-modelo="album"] { --tema-fundo: #f1e7d8; --tema-texto: #5e5042; --tema-destaque: #8e6d50; }
 .gift[data-modelo="album"] .gift-arch { background: #fffaf0; border: 1px solid #ddcbb5; border-radius: 5px; box-shadow: 7px 7px 0 #d9c7b0, 0 15px 30px rgba(77,58,38,.08); }
 .gift[data-modelo="album"] .gift-title { font-family: Georgia,serif; font-weight: 400; letter-spacing: .025em; }
@@ -683,15 +701,15 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 .gift[data-modelo="carta"] .gift-title { font-family: 'Brush Script MT','Segoe Script',cursive; font-weight: 400; font-size: clamp(2.3rem,5vw,3.6rem); }
 .gift[data-modelo="ceu"] { --tema-fundo: #1f2b43; --tema-texto: #f4e9d2; --tema-destaque: #efd28d; background: radial-gradient(ellipse at 50% 0%,#394968,#1d283e 70%); color: var(--tema-texto); }
 .gift[data-modelo="ceu"] .gift-arch { background: linear-gradient(160deg,#2d3c59,#172236); border: 1px solid rgba(230,202,137,.48); border-radius: 8px; box-shadow: inset 0 0 0 5px rgba(230,202,137,.06), 0 16px 40px rgba(0,0,0,.18); }
-.gift[data-modelo="ceu"] .gift-arch::before { content: 'âœ¦   Â·   âœ§    Â·    âœ¦'; color: #efd28d; opacity: .8; right: 0; width: 100%; text-align: center; font-size: 1.2rem; letter-spacing: .4em; }
+.gift[data-modelo="ceu"] .gift-arch::before { content: '✦   ·   ✧    ·    ✦'; color: #efd28d; opacity: .8; right: 0; width: 100%; text-align: center; font-size: 1.2rem; letter-spacing: .4em; }
 .gift[data-modelo="ceu"] .gift-title { color: #efd28d; font-family: Georgia,serif; font-weight: 400; }
 .gift[data-modelo="jardim"] { --tema-fundo: #edf1e8; --tema-texto: #4e624b; --tema-destaque: #5c7855; }
 .gift[data-modelo="jardim"] .gift-arch { background: linear-gradient(145deg,#fbfcf7,#e1eadb); border: 1px solid #c8d6c0; border-radius: 48% 48% 18px 18px / 14% 14% 18px 18px; box-shadow: 0 14px 30px rgba(65,88,59,.09); }
-.gift[data-modelo="jardim"] .gift-arch::before { content: 'â€     â'; color: #6e8b64; opacity: .3; }
+.gift[data-modelo="jardim"] .gift-arch::before { content: '❀     ❁'; color: #6e8b64; opacity: .3; }
 .gift[data-modelo="jardim"] .gift-title { color: #526f4c; font-family: Georgia,serif; font-style: italic; font-weight: 400; }
 .gift[data-modelo="scrap"] { --tema-fundo: #efe2d0; --tema-texto: #6e523f; --tema-destaque: #9a6b4e; }
 .gift[data-modelo="scrap"] .gift-arch { background: #fff5e7; border: 1px dashed #c3a184; border-radius: 6px; box-shadow: 7px 7px 0 #dfc8ad; }
-.gift[data-modelo="scrap"] .gift-arch::before { content: 'âœ‚   â™¡   âœ¦'; color: #a67a5d; opacity: .28; top: auto; bottom: 4%; right: 5%; }
+.gift[data-modelo="scrap"] .gift-arch::before { content: '✂   ♡   ✦'; color: #a67a5d; opacity: .28; top: auto; bottom: 4%; right: 5%; }
 .gift[data-modelo="scrap"] .polaroid { border: 6px solid #fffdf6; border-bottom-width: 19px; box-shadow: 2px 5px 0 #d8bea0, 0 8px 18px rgba(71,54,36,.12); }
 .gift[data-modelo="scrap"] .polaroid:nth-child(odd) { transform: rotate(-3deg) translateY(3px) !important; }
 .gift[data-modelo="scrap"] .polaroid:nth-child(even) { transform: rotate(3deg) translateY(-3px) !important; }
@@ -702,16 +720,18 @@ select:focus-visible { outline: none; border-color: var(--rosa-queimado); box-sh
 .gift[data-modelo="minimal"] .polaroid { background: transparent; border: 1px solid #d9d5ca; box-shadow: none !important; transform: none !important; }
 .gift[data-modelo="festa"] { --tema-fundo: #fff3e8; --tema-texto: #704a3a; --tema-destaque: #ad704e; }
 .gift[data-modelo="festa"] .gift-arch { background: radial-gradient(circle at 10% 10%,#f1d3b8 0 3px,transparent 4px),radial-gradient(circle at 90% 17%,#e8c6a8 0 4px,transparent 5px),linear-gradient(145deg,#fff9f1,#f8e2d0); border: 1px solid #e9c7ac; border-radius: 28px 28px 10px 10px; box-shadow: 0 14px 30px rgba(135,83,51,.09); }
-.gift[data-modelo="festa"] .gift-arch::before { content: 'âœ¦   âœ§   âœ¦'; color: #bc8b55; opacity: .5; width: 100%; text-align: center; right: 0; }
+.gift[data-modelo="festa"] .gift-arch::before { content: '✦   ✧   ✦'; color: #bc8b55; opacity: .5; width: 100%; text-align: center; right: 0; }
 .gift[data-modelo="festa"] .gift-title { color: #9c6246; letter-spacing: .04em; }
 @media (max-width: 640px) { .modelo-amostra { min-height: 120px; } .opcoes-modelo { gap: .65rem; } }
 
 
+/* Campos de mídia local */
 input[type="file"] { width: 100%; max-width: 100%; padding: 12px; border: 1px dashed var(--linha, #d8c8c3); border-radius: 12px; background: rgba(255,255,255,.55); color: inherit; font: inherit; }
 #baixar-presente { margin-top: 10px; }
 #status-fotos, #status-musica { overflow-wrap: anywhere; }
 
 
+/* Seletor de arquivos com aparência consistente com o Meu Cantinho */
 input[type="file"] {
   display: block; width: 100%; max-width: 100%; padding: 10px;
   border: 1px solid #e5c9c7; border-radius: 14px; background: #fffaf6;
@@ -727,4 +747,3 @@ input[type="file"]::file-selector-button:hover { background: #93404e; transform:
 input[type="file"]:focus-visible { outline: 3px solid #b0505f; outline-offset: 3px; }
 #baixar-presente { margin-top: 10px; }
 #status-fotos, #status-musica { overflow-wrap: anywhere; }
-
