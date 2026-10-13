@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#FBF6EE">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 27C6 19 4 14 4 10.5A6.5 6.5 0 0 1 16 8a6.5 6.5 0 0 1 12 2.5C28 14 26 19 16 27z' fill='%23B0505F'/%3E%3C/svg%3E">
 
+  <!-- Fontes: se não carregarem (sem internet), o site usa as fontes de reserva definidas no CSS. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&display=swap">
@@ -16,6 +17,7 @@
 <body>
   <a class="pular-link" href="#conteudo">Ir para o conteúdo</a>
 
+  <!-- ===================== SITE (página de criação) ===================== -->
   <div id="site">
 
     <header class="site-header" id="topo">
@@ -49,6 +51,7 @@
 
     <main id="conteudo" tabindex="-1">
 
+      <!-- ---------- Início ---------- -->
       <section class="hero" aria-labelledby="titulo-hero">
         <div class="wrap hero-grade">
           <div class="hero-texto">
@@ -73,6 +76,7 @@
                 </filter>
               </defs>
 
+              <!-- contorno pontilhado, como se tivesse sido costurado -->
               <path d="M36 556V250a224 224 0 0 1 448 0v306z" fill="none" stroke="#B0505F" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" opacity=".75"/>
 
               <g clip-path="url(#arco)">
@@ -81,6 +85,7 @@
                 <circle cx="260" cy="300" r="82" fill="#F2B9B5"/>
                 <path d="M50 390C130 340 210 350 290 378S430 380 470 360V540H50z" fill="#E8AFAF"/>
                 <path d="M50 440C120 405 200 410 270 428S410 430 470 410V540H50z" fill="#CF8A90"/>
+                <!-- casal -->
                 <g fill="#4F352E">
                   <circle cx="226" cy="362" r="6"/>
                   <circle cx="228" cy="376" r="12"/>
@@ -94,6 +99,7 @@
               <path transform="translate(231 326) scale(.95)" d="M12 21C5 15.6 3 12.2 3 9a4.6 4.6 0 0 1 9-1.4A4.6 4.6 0 0 1 21 9c0 3.2-2 6.6-9 12z" fill="#B0505F"/>
               <path d="M352 150q8-9 16 0q8-9 16 0M392 126q6-7 12 0q6-7 12 0" fill="none" stroke="#4F352E" stroke-width="2" stroke-linecap="round"/>
 
+              <!-- fotografia instantânea -->
               <g transform="translate(392 376) rotate(7) scale(.9)">
                 <g class="hero-polaroid">
                   <rect x="-82" y="-12" width="172" height="204" fill="#FFFCF7" filter="url(#sombra-foto)"/>
@@ -110,6 +116,7 @@
         </div>
       </section>
 
+      <!-- ---------- Como funciona ---------- -->
       <section class="secao" id="como-funciona" aria-labelledby="titulo-como">
         <div class="wrap">
           <h2 id="titulo-como" class="titulo-secao">Três passos até o presente chegar</h2>
@@ -133,6 +140,7 @@
         </div>
       </section>
 
+      <!-- ---------- Exemplo ---------- -->
       <section class="secao secao--papel" id="exemplo" aria-labelledby="titulo-exemplo">
         <div class="wrap exemplo-grade">
           <div class="exemplo-texto">
@@ -149,6 +157,7 @@
         </div>
       </section>
 
+      <!-- ---------- Editor ---------- -->
       <section class="secao" id="criar" aria-labelledby="titulo-criar">
         <div class="wrap">
           <h2 id="titulo-criar" class="titulo-secao">Monte o seu presente</h2>
@@ -161,6 +170,7 @@
 
           <div class="editor" id="editor" data-view="form">
 
+            <!-- Formulário -->
             <form class="editor-form" id="form-presente" novalidate autocomplete="off">
 
               <fieldset class="grupo escolha-grupo">
@@ -299,6 +309,7 @@
               </div>
             </form>
 
+            <!-- Pré-visualização -->
             <aside class="editor-previa" aria-label="Pré-visualização do presente">
               <p class="previa-titulo">Pré-visualização <span class="texto-suave">atualiza enquanto você escreve</span></p>
               <div class="aparelho aparelho--previa" data-scroller id="quadro-previa" tabindex="0" aria-label="Pré-visualização do presente, role para ver tudo"></div>
@@ -316,6 +327,7 @@
     </footer>
   </div>
 
+  <!-- ===================== PRESENTE (quando o link tem ?presente=) ===================== -->
   <div id="presente-final" hidden></div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
