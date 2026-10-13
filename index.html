@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Cantinho: presentes digitais feitos com carinho</title>
+  <meta name="description" content="Crie um mini-site romântico com carta, fotos, música e contador de dias para presentear quem você ama. Sem programar.">
+  <meta name="theme-color" content="#FBF6EE">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 27C6 19 4 14 4 10.5A6.5 6.5 0 0 1 16 8a6.5 6.5 0 0 1 12 2.5C28 14 26 19 16 27z' fill='%23B0505F'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <div id="site">
+
+    <header class="site-header" id="topo">
+      <div class="wrap header-inner">
+        <a class="marca" href="#topo" data-scroll aria-label="Meu Cantinho, voltar ao início">
+          <svg class="marca-icone" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M16 27C6 19 4 14 4 10.5A6.5 6.5 0 0 1 16 8a6.5 6.5 0 0 1 12 2.5C28 14 26 19 16 27z"/>
+          </svg>
+          <span>Meu Cantinho</span>
+        </a>
+
+        <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span class="sr-only">Abrir menu</span>
+          <span class="menu-barras" aria-hidden="true"></span>
+        </button>
+
+        <nav id="menu-principal" class="menu" aria-label="Principal">
+          <ul>
+            <li><a href="#como-funciona" data-scroll>Como funciona</a></li>
+            <li><a href="#exemplo" data-scroll>Exemplo</a></li>
+            <li><a href="#criar" data-scroll class="menu-destaque">Criar presente</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="aviso-link" class="aviso wrap" role="alert" hidden>
+      <p>Não conseguimos abrir esse presente. O link pode ter sido copiado incompleto. Peça para a pessoa enviar o endereço de novo.</p>
+      <button type="button" class="aviso-fechar" aria-label="Fechar aviso">Fechar</button>
+    </div>
+
+    <main id="conteudo" tabindex="-1">
+
+      <section class="hero" aria-labelledby="titulo-hero">
+        <div class="wrap hero-grade">
+          <div class="hero-texto">
+            <h1 id="titulo-hero">Um cantinho só de vocês, para dar de presente</h1>
+            <p class="hero-lead">Crie um mini-site com carta, fotos, música e contador de dias. Você preenche, vê o resultado na hora e manda o link. Não precisa saber programar.</p>
+            <div class="hero-acoes">
+              <a class="btn" href="#criar" data-scroll>Criar meu presente</a>
+              <a class="btn btn--contorno" href="#exemplo" data-scroll>Ver um exemplo</a>
+            </div>
+            <p class="nota-mao" aria-hidden="true">
+              <svg viewBox="0 0 70 50" focusable="false"><path d="M62 6C42 4 18 14 10 38M10 38l-1-14M10 38l15-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>leva uns cinco minutinhos</span>
+            </p>
+          </div>
+
+          <div class="hero-arte">
+            <svg class="hero-svg" viewBox="0 0 520 580" role="img" aria-label="Ilustração de um casal sentado numa colina ao pôr do sol, com uma fotografia instantânea em primeiro plano">
+              <defs>
+                <clipPath id="arco"><path d="M50 540V250a210 210 0 0 1 420 0v290z"/></clipPath>
+                <filter id="sombra-foto" x="-20%" y="-20%" width="140%" height="150%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#4F352E" flood-opacity=".22"/>
+                </filter>
+              </defs>
+
+              <path d="M36 556V250a224 224 0 0 1 448 0v306z" fill="none" stroke="#B0505F" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" opacity=".75"/>
+
+              <g clip-path="url(#arco)">
+                <rect x="50" y="30" width="420" height="520" fill="#F9E3D8"/>
+                <circle cx="260" cy="300" r="120" fill="#F6D0CB"/>
+                <circle cx="260" cy="300" r="82" fill="#F2B9B5"/>
+                <path d="M50 390C130 340 210 350 290 378S430 380 470 360V540H50z" fill="#E8AFAF"/>
+                <path d="M50 440C120 405 200 410 270 428S410 430 470 410V540H50z" fill="#CF8A90"/>
+                <g fill="#4F352E">
+                  <circle cx="226" cy="362" r="6"/>
+                  <circle cx="228" cy="376" r="12"/>
+                  <path d="M212 454C210 412 216 394 229 394C242 394 248 412 247 454z"/>
+                  <circle cx="256" cy="382" r="11"/>
+                  <path d="M243 454C243 420 249 402 262 402C275 402 280 420 280 454z"/>
+                </g>
+                <path d="M50 492C150 462 250 470 340 490S440 492 470 480V540H50z" fill="#8C5A55"/>
+              </g>
+
+              <path transform="translate(231 326) scale(.95)" d="M12 21C5 15.6 3 12.2 3 9a4.6 4.6 0 0 1 9-1.4A4.6 4.6 0 0 1 21 9c0 3.2-2 6.6-9 12z" fill="#B0505F"/>
+              <path d="M352 150q8-9 16 0q8-9 16 0M392 126q6-7 12 0q6-7 12 0" fill="none" stroke="#4F352E" stroke-width="2" stroke-linecap="round"/>
+
+              <g transform="translate(392 376) rotate(7) scale(.9)">
+                <g class="hero-polaroid">
+                  <rect x="-82" y="-12" width="172" height="204" fill="#FFFCF7" filter="url(#sombra-foto)"/>
+                  <rect x="-70" y="0" width="148" height="148" fill="#F9E3D8"/>
+                  <circle cx="4" cy="86" r="32" fill="#F2B9B5"/>
+                  <path d="M-70 122C-30 102 20 106 78 120V148H-70z" fill="#CF8A90"/>
+                  <path d="M-70 136C-20 122 30 126 78 136V148H-70z" fill="#8C5A55"/>
+                  <text class="svg-mao" x="4" y="177" text-anchor="middle" font-size="24" fill="#4F352E">nosso verão</text>
+                  <rect x="-28" y="-26" width="62" height="22" fill="#F6D0CB" opacity=".9" transform="rotate(-5 3 -15)"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao" id="como-funciona" aria-labelledby="titulo-como">
+        <div class="wrap">
+          <h2 id="titulo-como" class="titulo-secao">Três passos até o presente chegar</h2>
+          <ol class="passos">
+            <li class="passo">
+              <span class="passo-selo" aria-hidden="true">1</span>
+              <h3>Conte a história</h3>
+              <p>Escreva os nomes, escolha a data que mudou tudo e solte a carta que você sempre quis mandar.</p>
+            </li>
+            <li class="passo">
+              <span class="passo-selo" aria-hidden="true">2</span>
+              <h3>Escolha as lembranças</h3>
+              <p>Adicione até três fotos e uma música. Tudo aparece ao lado enquanto você digita.</p>
+            </li>
+            <li class="passo">
+              <span class="passo-selo" aria-hidden="true">3</span>
+              <h3>Mande o link</h3>
+              <p>Copie o endereço do presente e envie por mensagem. Quem recebe só precisa abrir.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="secao secao--papel" id="exemplo" aria-labelledby="titulo-exemplo">
+        <div class="wrap exemplo-grade">
+          <div class="exemplo-texto">
+            <h2 id="titulo-exemplo" class="titulo-secao">Veja como fica um presente pronto</h2>
+            <p>Role o exemplo ao lado como se fosse o celular de quem recebe. Abra a carta, olhe as fotos e revele a surpresa.</p>
+            <p class="texto-suave">As fotos deste exemplo são ilustrações. No seu presente, entram as suas fotos.</p>
+            <button type="button" class="btn btn--contorno" id="usar-exemplo">Usar como ponto de partida</button>
+          </div>
+          <div class="exemplo-moldura">
+            <div class="aparelho" data-scroller id="quadro-exemplo" tabindex="0" aria-label="Exemplo de presente, role para ver tudo">
+              <div id="presente-exemplo"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao" id="criar" aria-labelledby="titulo-criar">
+        <div class="wrap">
+          <h2 id="titulo-criar" class="titulo-secao">Monte o seu presente</h2>
+          <p class="secao-lead">Preencha o que quiser. Só os nomes e a carta são obrigatórios.</p>
+
+          <div class="editor-abas" role="group" aria-label="Alternar entre edição e pré-visualização">
+            <button type="button" class="editor-aba" data-view="form" aria-pressed="true">Editar</button>
+            <button type="button" class="editor-aba" data-view="preview" aria-pressed="false">Ver como fica</button>
+          </div>
+
+          <div class="editor" id="editor" data-view="form">
+
+            <form class="editor-form" id="form-presente" novalidate autocomplete="off">
+
+              <fieldset class="grupo escolha-grupo">
+                <legend>Qual é a ocasião?</legend>
+                <p class="dica dica--grupo">Escolha o motivo do presente. Isso ajuda a sugerir cartas que combinam com o momento.</p>
+                <div class="opcoes-ocasiao" id="opcoes-ocasiao">
+                  <label class="opcao-card selecionado"><input type="radio" name="ocasiao" value="namoro" checked><span class="opcao-icone">♡</span><strong>Namoro</strong><small>Amor e carinho</small></label>
+                  <label class="opcao-card"><input type="radio" name="ocasiao" value="aniversario"><span class="opcao-icone">✳</span><strong>Aniversário</strong><small>Um dia especial</small></label>
+                  <label class="opcao-card"><input type="radio" name="ocasiao" value="casamento"><span class="opcao-icone">∞</span><strong>Casamento</strong><small>Uma vida juntos</small></label>
+                  <label class="opcao-card"><input type="radio" name="ocasiao" value="amizade"><span class="opcao-icone">✿</span><strong>Amizade</strong><small>Para alguém querido</small></label>
+                  <label class="opcao-card"><input type="radio" name="ocasiao" value="agradecimento"><span class="opcao-icone">♡</span><strong>Agradecimento</strong><small>Dizer obrigado</small></label>
+                  <label class="opcao-card"><input type="radio" name="ocasiao" value="desculpas"><span class="opcao-icone">☁</span><strong>Desculpas</strong><small>Recomeçar</small></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="grupo escolha-grupo">
+                <legend>Escolha um modelo</legend>
+                <p class="dica dica--grupo">Cada modelo muda o visual do presente. Você pode trocar depois sem perder seu texto.</p>
+                <div class="opcoes-modelo" id="opcoes-modelo">
+                  <label class="modelo-card modelo-nosso selecionado"><input type="radio" name="modelo" value="nosso" checked><span class="modelo-amostra"><i>♡</i><b>Nosso Cantinho</b><small>Romântico clássico</small></span><strong>Nosso Cantinho</strong><small>Creme e rosa</small></label>
+                  <label class="modelo-card modelo-album"><input type="radio" name="modelo" value="album"><span class="modelo-amostra"><i>▧</i><b>Memórias</b><small>Momentos guardados</small></span><strong>Álbum de Memórias</strong><small>Fotos em destaque</small></label>
+                  <label class="modelo-card modelo-carta"><input type="radio" name="modelo" value="carta"><span class="modelo-amostra"><i>✉</i><b>Com carinho</b><small>Uma carta especial</small></span><strong>Carta de Amor</strong><small>Minimalista</small></label>
+                  <label class="modelo-card modelo-ceu"><input type="radio" name="modelo" value="ceu"><span class="modelo-amostra"><i>✦</i><b>Até as estrelas</b><small>Uma noite só nossa</small></span><strong>Céu Estrelado</strong><small>Azul e dourado</small></label>
+                  <label class="modelo-card modelo-jardim"><input type="radio" name="modelo" value="jardim"><span class="modelo-amostra"><i>❀</i><b>Florescer</b><small>Afeto que cresce</small></span><strong>Jardim Romântico</strong><small>Verde e floral</small></label>
+                  <label class="modelo-card modelo-scrap"><input type="radio" name="modelo" value="scrap"><span class="modelo-amostra"><i>✂</i><b>Feito à mão</b><small>Nossas lembranças</small></span><strong>Scrapbook</strong><small>Recortes e notas</small></label>
+                  <label class="modelo-card modelo-minimal"><input type="radio" name="modelo" value="minimal"><span class="modelo-amostra"><i>—</i><b>Essencial</b><small>Só o que importa</small></span><strong>Minimalista</strong><small>Limpo e elegante</small></label>
+                  <label class="modelo-card modelo-festa"><input type="radio" name="modelo" value="festa"><span class="modelo-amostra"><i>✳</i><b>Hoje é seu dia</b><small>Vamos celebrar</small></span><strong>Celebração</strong><small>Para comemorar</small></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="grupo">
+                <legend>Quem são vocês</legend>
+                <div class="linha-2">
+                  <div class="campo">
+                    <label for="f-para">Nome de quem vai receber</label>
+                    <input type="text" id="f-para" name="para" maxlength="40" placeholder="Ex.: Marina" data-alvo="boas-vindas" aria-describedby="erro-para" required>
+                    <p class="erro" id="erro-para" aria-live="polite"></p>
+                  </div>
+                  <div class="campo">
+                    <label for="f-de">Seu nome</label>
+                    <input type="text" id="f-de" name="de" maxlength="40" placeholder="Ex.: Caio" data-alvo="boas-vindas" aria-describedby="erro-de" required>
+                    <p class="erro" id="erro-de" aria-live="polite"></p>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="grupo">
+                <legend>Uma data especial</legend>
+                <div class="campo campo--curto">
+                  <label for="f-data">Data</label>
+                  <input type="date" id="f-data" name="data" data-alvo="contador" aria-describedby="dica-data erro-data">
+                  <p class="dica" id="dica-data">O contador mostra quantos dias se passaram desde esse dia. Pode ser o começo do namoro, o primeiro beijo, qualquer data que importe.</p>
+                  <p class="erro" id="erro-data" aria-live="polite"></p>
+                </div>
+              </fieldset>
+
+              <fieldset class="grupo">
+                <legend>A carta</legend>
+                <div class="campo">
+                  <label for="f-tipo-carta">Comece com um modelo de texto</label>
+                  <select id="f-tipo-carta" name="tipoCarta">
+                    <option value="livre">Carta em branco — escrever do zero</option>
+                    <option value="amor">Declaração de amor</option>
+                    <option value="namoro">Aniversário de namoro</option>
+                    <option value="pedido">Pedido de namoro</option>
+                    <option value="aniversario-romantico">Aniversário de alguém especial</option>
+                    <option value="aniversario-amigo">Aniversário de amizade</option>
+                    <option value="casamento">Mensagem para os noivos</option>
+                    <option value="votos">Votos de casamento</option>
+                    <option value="bodas">Bodas / aniversário de casamento</option>
+                    <option value="amizade">Carta para melhor amigo(a)</option>
+                    <option value="mae">Homenagem para a mãe</option>
+                    <option value="pai">Homenagem para o pai</option>
+                    <option value="obrigado">Agradecimento</option>
+                    <option value="desculpas">Pedido de desculpas sincero</option>
+                    <option value="recomeco">Uma mensagem para recomeçar</option>
+                    <option value="divertida">Mensagem divertida</option>
+                  </select>
+                  <p class="dica">Escolha uma inspiração e depois edite o texto para ficar com a sua cara.</p>
+                </div>
+                <div class="campo">
+                  <label for="f-carta">Edite sua carta</label>
+                  <textarea id="f-carta" name="carta" rows="9" maxlength="2500" placeholder="Conte uma lembrança, diga o que você sente, agradeça. Não precisa ser perfeito, precisa ser seu." data-alvo="carta" aria-describedby="dica-carta erro-carta" required></textarea>
+                  <p class="dica" id="dica-carta">A saudação com o nome e a assinatura entram sozinhas. <span id="contagem-carta" class="contagem">0/2500</span></p>
+                  <p class="erro" id="erro-carta" aria-live="polite"></p>
+                </div>
+              </fieldset>
+
+              <fieldset class="grupo">
+                <legend>Fotos do seu dispositivo</legend>
+                <p class="dica dica--grupo" id="dica-fotos">Adicione até 3 fotos do seu PC ou celular. Você pode escolher uma por vez; as anteriores serão mantidas.</p>
+                <div class="campo">
+                  <label for="f-arquivos-fotos">Escolher fotos (até 3)</label>
+                  <input type="file" id="f-arquivos-fotos" accept="image/*" multiple>
+                  <p class="dica" id="status-fotos">Nenhuma foto selecionada.</p>
+                </div>
+                <div class="foto-slot"><div class="campo"><label for="f-legenda1">Legenda da foto 1 <span class="opcional">(opcional)</span></label><input type="text" id="f-legenda1" maxlength="40" placeholder="Ex.: nosso primeiro café"></div></div>
+                <div class="foto-slot"><div class="campo"><label for="f-legenda2">Legenda da foto 2 <span class="opcional">(opcional)</span></label><input type="text" id="f-legenda2" maxlength="40" placeholder="Ex.: domingo de chuva"></div></div>
+                <div class="foto-slot"><div class="campo"><label for="f-legenda3">Legenda da foto 3 <span class="opcional">(opcional)</span></label><input type="text" id="f-legenda3" maxlength="40" placeholder="Ex.: aquela viagem"></div></div>
+              </fieldset>
+
+              <fieldset class="grupo">
+                <legend>Música do seu dispositivo</legend>
+                <div class="campo">
+                  <label for="f-arquivo-musica">Escolher música <span class="opcional">(opcional)</span></label>
+                  <input type="file" id="f-arquivo-musica" accept="audio/*,.mp3,.m4a,.ogg,.wav">
+                  <p class="dica" id="status-musica">Nenhuma música selecionada. MP3 é recomendado.</p>
+                </div>
+              </fieldset>
+
+              <fieldset class="grupo">
+                <legend>Mensagem surpresa</legend>
+                <div class="campo">
+                  <label for="f-surpresa">O que fica escondido até a pessoa tocar no botão <span class="opcional">(opcional)</span></label>
+                  <textarea id="f-surpresa" rows="4" maxlength="600" placeholder="Um convite, uma promessa, uma viagem marcada..." data-alvo="surpresa" aria-describedby="dica-surpresa"></textarea>
+                  <p class="dica" id="dica-surpresa"><span id="contagem-surpresa" class="contagem">0/600</span></p>
+                </div>
+              </fieldset>
+
+              <div class="gerar">
+                <p class="erro erro--resumo" id="resumo-erros" role="alert" tabindex="-1"></p>
+                <button type="submit" class="btn">Gerar link do presente</button>
+                <button type="button" class="btn btn--suave" id="baixar-presente">Baixar cartão completo (.html)</button>
+                <p class="dica">O HTML leva a página, as fotos e a música em um único arquivo. Envie como documento; quem receber deve baixar e abrir com o navegador.</p>
+
+                <div class="resultado" id="resultado" hidden>
+                  <label for="campo-link">Link do seu presente</label>
+                  <div class="link-linha">
+                    <input type="text" id="campo-link" readonly>
+                    <button type="button" class="btn btn--suave" id="copiar-link">Copiar link</button>
+                  </div>
+                  <p class="dica" id="aviso-tamanho" hidden>Este link ficou longo por causa dos textos. Alguns aplicativos de mensagem podem cortá-lo, então teste antes de enviar.</p>
+                  <p><a id="abrir-link" class="link-simples" href="#" target="_blank" rel="noopener">Abrir o presente em outra aba</a></p>
+                  <p class="aviso-prototipo"><strong>Importante:</strong> esta é uma versão de demonstração. Todo o conteúdo do presente fica dentro do próprio link, sem criptografia e sem ficar salvo em nenhum servidor. Não coloque informações confidenciais.</p>
+                </div>
+              </div>
+            </form>
+
+            <aside class="editor-previa" aria-label="Pré-visualização do presente">
+              <p class="previa-titulo">Pré-visualização <span class="texto-suave">atualiza enquanto você escreve</span></p>
+              <div class="aparelho aparelho--previa" data-scroller id="quadro-previa" tabindex="0" aria-label="Pré-visualização do presente, role para ver tudo"></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="wrap">
+        <p class="rodape-marca">Meu Cantinho</p>
+        <p class="texto-suave">Protótipo de demonstração. Os presentes ainda não ficam salvos em servidor.</p>
+      </div>
+    </footer>
+  </div>
+
+  <div id="presente-final" hidden></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
