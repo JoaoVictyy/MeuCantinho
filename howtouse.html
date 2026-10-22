@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FBF6EE">
+    <meta name="description"
+        content="Crie um presente digital cheio de carinho, com carta, fotos e música. Personalize seu cantinho e surpreenda alguém especial.">
+    <title>Meu Cantinho — Um presente feito com carinho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;1,9..144,400;1,9..144,500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --creme: #FBF6EE;
+            --off: #FFFCF7;
+            --papel: #F4EADD;
+            --linha: #E3D3C2;
+            --rosa-pastel: #F6D9D6;
+            --rosa-medio: #E8B4B3;
+            --rosa: #B0505F;
+            --rosa-escuro: #93404E;
+            --marrom: #4F352E;
+            --marrom-suave: #7A5C52;
+            --sombra: 0 1px 2px #4f352e14, 0 14px 38px -16px #4f352e42;
+            --titulo: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+            --texto: 'Figtree', system-ui, sans-serif;
+            --mao: 'Caveat', cursive
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--creme);
+            color: var(--marrom);
+            font: 16px/1.65 var(--texto);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .31 0 0 0 0 .21 0 0 0 0 .18 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        a {
+            color: inherit
+        }
+
+        .wrap {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto
+        }
+
+        header {
+            height: 72px;
+            border-bottom: 1px solid #e3d3c288;
+            background: #fbf6eee8;
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 5
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: var(--titulo);
+            font-size: 23px;
+            font-weight: 600
+        }
+
+        .heart {
+            width: 28px;
+            height: 28px;
+            fill: var(--rosa)
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 24px;
+            align-items: center
+        }
+
+        .navlinks a {
+            text-decoration: none;
+            color: var(--marrom-suave);
+            font-size: 14px
+        }
+
+        .navlinks a:hover {
+            color: var(--rosa)
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border: 1px solid var(--rosa);
+            border-radius: 999px;
+            padding: 13px 22px;
+            background: var(--rosa);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 7px 18px #b0505f30;
+            transition: transform .18s, background .18s
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: var(--rosa-escuro)
+        }
+
+        .btn.secondary {
+            background: var(--off);
+            color: var(--rosa-escuro);
+            box-shadow: none;
+            border-color: var(--linha)
+        }
+
+        .btn.secondary:hover {
+            background: white
+        }
+
+        .hero {
+            padding: 74px 0 70px;
+            overflow: hidden
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 54px
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--rosa-escuro);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .13em;
+            font-weight: 700;
+            margin-bottom: 18px
+        }
+
+        .eyebrow:before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: var(--rosa)
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--titulo);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -.025em
+        }
+
+        h1 {
+            font-size: clamp(42px, 5.4vw, 68px);
+            margin: 0 0 22px;
+            max-width: 630px
+        }
+
+        h1 em {
+            color: var(--rosa);
+            font-weight: 400
+        }
+
+        .lead {
+            font-size: 18px;
+            max-width: 540px;
+            color: var(--marrom-suave);
+            margin: 0 0 28px
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .handnote {
+            font: 23px var(--mao);
+            color: var(--rosa-escuro);
+            margin-top: 17px
+        }
+
+        .art {
+            min-height: 420px;
+            position: relative;
+            display: grid;
+            place-items: center
+        }
+
+        .arch {
+            width: min(100%, 390px);
+            height: 420px;
+            border: 2px dotted #b0505f9c;
+            border-radius: 200px 200px 22px 22px;
+            padding: 13px;
+            transform: rotate(2deg);
+            position: relative
+        }
+
+        .scene {
+            height: 100%;
+            border-radius: 190px 190px 14px 14px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(180deg, #f9e3d8 0%, #f6d0cb 52%, #cf8a90 100%)
+        }
+
+        .sun {
+            position: absolute;
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            background: #f2b9b5;
+            left: 50%;
+            top: 72px;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 25px #f6d0cb88
+        }
+
+        .hill {
+            position: absolute;
+            bottom: 0;
+            left: -15%;
+            width: 130%;
+            height: 48%;
+            background: #e8afaf;
+            border-radius: 50% 50% 0 0/25% 25% 0 0;
+            transform: rotate(-7deg)
+        }
+
+        .hill.two {
+            bottom: -30px;
+            background: #8c5a55;
+            transform: rotate(7deg);
+            height: 34%
+        }
+
+        .person {
+            position: absolute;
+            bottom: 62px;
+            left: 42%;
+            width: 46px;
+            height: 115px;
+            background: #4f352e;
+            border-radius: 24px 24px 10px 10px;
+            transform: rotate(-5deg)
+        }
+
+        .person:before {
+            content: "";
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: #4f352e;
+            border-radius: 50%;
+            top: -28px;
+            left: 5px
+        }
+
+        .person.p2 {
+            left: 54%;
+            bottom: 65px;
+            height: 98px;
+            transform: rotate(7deg);
+            background: #93404e
+        }
+
+        .person.p2:before {
+            background: #93404e;
+            width: 32px;
+            height: 32px;
+            top: -26px
+        }
+
+        .floating-heart {
+            position: absolute;
+            top: 53px;
+            right: 23px;
+            color: var(--rosa);
+            font-size: 36px;
+            transform: rotate(13deg)
+        }
+
+        .polaroid {
+            position: absolute;
+            width: 145px;
+            background: var(--off);
+            padding: 10px 10px 38px;
+            right: -8px;
+            bottom: 4px;
+            box-shadow: var(--sombra);
+            transform: rotate(8deg)
+        }
+
+        .photo {
+            height: 125px;
+            background: linear-gradient(145deg, #f6d9d6, #e8b4b3);
+            display: grid;
+            place-items: center;
+            color: #93404e;
+            font-size: 38px
+        }
+
+        .polaroid span {
+            position: absolute;
+            bottom: 7px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font: 22px var(--mao);
+            color: var(--marrom)
+        }
+
+        .tape {
+            position: absolute;
+            top: 3px;
+            left: 38%;
+            width: 72px;
+            height: 22px;
+            background: #f6d0cbcc;
+            transform: rotate(-7deg)
+        }
+
+        .trust {
+            border-top: 1px solid var(--linha);
+            border-bottom: 1px solid var(--linha);
+            background: #fffcf780;
+            padding: 17px 0
+        }
+
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 26px;
+            color: var(--marrom-suave);
+            font-size: 14px
+        }
+
+        .trust-row span {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .trust-row b {
+            color: var(--rosa)
+        }
+
+        section.content {
+            padding: 76px 0
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 670px;
+            margin: 0 auto 38px
+        }
+
+        .section-head h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            margin: 0 0 13px
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--marrom-suave)
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .feature {
+            background: var(--off);
+            border: 1px solid var(--linha);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 5px 20px #4f352e08
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: var(--rosa-pastel);
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            margin-bottom: 17px
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            margin: 0 0 9px
+        }
+
+        .feature p {
+            color: var(--marrom-suave);
+            font-size: 15px;
+            margin: 0
+        }
+
+        .how {
+            background: #f4eadd99;
+            border-block: 1px solid var(--linha)
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            counter-reset: step
+        }
+
+        .step {
+            position: relative;
+            padding: 24px 22px;
+            background: var(--off);
+            border: 1px solid var(--linha);
+            border-radius: 18px
+        }
+
+        .step-no {
+            font: 30px var(--mao);
+            color: var(--rosa)
+        }
+
+        .step h3 {
+            font-size: 23px;
+            margin: 8px 0
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--marrom-suave);
+            font-size: 15px
+        }
+
+        .price-card {
+            max-width: 780px;
+            margin: auto;
+            background: var(--off);
+            border: 1px solid var(--linha);
+            border-radius: 26px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr .8fr
+        }
+
+        .price-copy {
+            padding: 34px
+        }
+
+        .price-copy h2 {
+            font-size: 37px;
+            margin: 0 0 13px
+        }
+
+        .price-copy p {
+            color: var(--marrom-suave)
+        }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0
+        }
+
+        .price-list li {
+            margin: 9px 0
+        }
+
+        .price-list li:before {
+            content: "♥";
+            color: var(--rosa);
+            font-size: 13px;
+            margin-right: 10px
+        }
+
+        .price-side {
+            background: #f6d9d6;
+            padding: 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center
+        }
+
+        .small {
+            font-size: 13px;
+            color: var(--marrom-suave)
+        }
+
+        .price {
+            font-family: var(--titulo);
+            font-size: 58px;
+            letter-spacing: -.04em;
+            line-height: 1.1;
+            margin: 6px 0 12px
+        }
+
+        .price-side .btn {
+            width: 100%;
+            padding: 14px 16px
+        }
+
+        .fineprint {
+            font-size: 12px;
+            color: var(--marrom-suave);
+            margin-top: 13px
+        }
+
+        .faq {
+            max-width: 760px;
+            margin: auto
+        }
+
+        .faq details {
+            border-bottom: 1px solid var(--linha);
+            padding: 18px 0
+        }
+
+        .faq summary {
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .faq details p {
+            color: var(--marrom-suave);
+            margin: 12px 0 0
+        }
+
+        footer {
+            border-top: 1px solid var(--linha);
+            padding: 28px 0 38px;
+            color: var(--marrom-suave);
+            font-size: 13px
+        }
+
+        .footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .footer-brand {
+            font: 22px var(--titulo);
+            color: var(--marrom)
+        }
+
+        @media(max-width:760px) {
+            .wrap {
+                width: min(100% - 30px, 560px)
+            }
+
+            header {
+                height: 64px
+            }
+
+            .brand {
+                font-size: 21px
+            }
+
+            .navlinks a:not(.btn) {
+                display: none
+            }
+
+            .navlinks .btn {
+                padding: 10px 15px;
+                font-size: 13px
+            }
+
+            .hero {
+                padding: 44px 0 50px
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 22px
+            }
+
+            .hero-text {
+                text-align: center
+            }
+
+            .eyebrow {
+                justify-content: center
+            }
+
+            .hero h1 {
+                font-size: 43px
+            }
+
+            .lead {
+                font-size: 16px;
+                margin-inline: auto
+            }
+
+            .actions {
+                justify-content: center
+            }
+
+            .handnote {
+                margin-top: 10px
+            }
+
+            .art {
+                min-height: 350px;
+                margin-top: 5px
+            }
+
+            .arch {
+                height: 340px;
+                width: 300px
+            }
+
+            .sun {
+                width: 115px;
+                height: 115px;
+                top: 60px
+            }
+
+            .polaroid {
+                width: 120px;
+                right: -7px;
+                bottom: 0;
+                padding: 8px 8px 32px
+            }
+
+            .photo {
+                height: 103px
+            }
+
+            .features,
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 13px
+            }
+
+            section.content {
+                padding: 55px 0
+            }
+
+            .section-head {
+                margin-bottom: 25px
+            }
+
+            .feature {
+                padding: 22px
+            }
+
+            .price-card {
+                grid-template-columns: 1fr
+            }
+
+            .price-copy,
+            .price-side {
+                padding: 25px
+            }
+
+            .price-copy h2 {
+                font-size: 31px
+            }
+
+            .price {
+                font-size: 52px
+            }
+
+            .footer-row {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .trust-row {
+                gap: 12px 20px;
+                font-size: 12px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap nav">
+            <a class="brand" href="./index.html" aria-label="Meu Cantinho - início"><svg class="heart"
+                    viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M16 27C6 19 4 14 4 10.5A6.5 6.5 0 0 1 16 8a6.5 6.5 0 0 1 12 2.5C28 14 26 19 16 27z" />
+                </svg>Meu Cantinho</a>
+            <nav class="navlinks" aria-label="Navegação"><a href="#como-funciona">Como funciona</a><a href="#detalhes">O
+                    que vem</a><a class="btn" href="./index.html">Criar meu presente <span
+                        aria-hidden="true">↗</span></a></nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-text">
+                    <div class="eyebrow">feito com carinho, para alguém especial</div>
+                    <h1>Um cantinho só de vocês, <em>para guardar o amor.</em></h1>
+                    <p class="lead">Transforme suas palavras, fotos e músicas em um presente digital único. Personalize
+                        do seu jeito, veja como fica e prepare uma surpresa que a pessoa vai poder guardar para sempre.
+                    </p>
+                    <div class="actions"><a class="btn" href="./index.html">Começar meu presente <span
+                                aria-hidden="true">♡</span></a><a class="btn secondary" href="#como-funciona">Ver como
+                            funciona</a></div>
+                    <div class="handnote">feito por você, com todo o carinho ✿</div>
+                </div>
+                <div class="art" aria-label="Ilustração romântica de um pôr do sol e uma fotografia">
+                    <div class="arch">
+                        <div class="scene">
+                            <div class="sun"></div>
+                            <div class="hill"></div>
+                            <div class="hill two"></div>
+                            <div class="person"></div>
+                            <div class="person p2"></div>
+                        </div>
+                    </div>
+                    <div class="floating-heart">♥</div>
+                    <div class="polaroid">
+                        <div class="tape"></div>
+                        <div class="photo">♡</div><span>nosso cantinho</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="trust">
+            <div class="wrap trust-row"><span><b>♡</b> Personalizado por você</span><span><b>✿</b> 12 modelos para
+                    escolher</span><span><b>♫</b> Fotos e música</span><span><b>↗</b> Arquivo digital para
+                    guardar</span></div>
+        </div>
+        <section class="content" id="detalhes">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow">um presente que tem a sua cara</div>
+                    <h2>Pequenos detalhes, grandes lembranças.</h2>
+                    <p>Você escolhe o estilo e monta cada pedacinho com as memórias de vocês.</p>
+                </div>
+                <div class="features">
+                    <article class="feature">
+                        <div class="feature-icon">💌</div>
+                        <h3>Uma carta sua</h3>
+                        <p>Escreva uma mensagem especial com suas próprias palavras e escolha o visual que combina com a
+                            história de vocês.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon">📷</div>
+                        <h3>Até 10 fotos</h3>
+                        <p>Reúna momentos favoritos, adicione legendas e transforme suas fotos em parte do presente.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon">♫</div>
+                        <h3>Música e estilo</h3>
+                        <p>Escolha cores, fontes e um dos 12 modelos para deixar tudo com a personalidade de vocês.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content how" id="como-funciona">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow">simples assim</div>
+                    <h2>Do seu coração para a tela.</h2>
+                    <p>Você não precisa entender de tecnologia. É só seguir alguns passos.</p>
+                </div>
+                <div class="steps">
+                    <article class="step">
+                        <div class="step-no">01</div>
+                        <h3>Monte seu presente</h3>
+                        <p>Escreva a carta, escolha um modelo e adicione as fotos e a música que quiser.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-no">02</div>
+                        <h3>Veja antes de finalizar</h3>
+                        <p>Confira o resultado e ajuste os detalhes até ficar do jeitinho que imaginou.</p>
+                    </article>
+                    <article class="step">
+                        <div class="step-no">03</div>
+                        <h3>Guarde e compartilhe</h3>
+                        <p>Prepare seu presente digital para entregar a alguém especial e tornar o momento inesquecível.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content" id="comprar">
+            <div class="wrap">
+                <div class="price-card">
+                    <div class="price-copy">
+                        <div class="eyebrow">um presente feito por você</div>
+                        <h2>Surpreenda com algo que ninguém mais pode fazer igual.</h2>
+                        <p>Crie um presente digital com suas palavras e memórias. Você personaliza tudo antes de decidir
+                            finalizar.</p>
+                        <ul class="price-list">
+                            <li>12 modelos visuais</li>
+                            <li>Até 10 fotos com legendas</li>
+                            <li>Personalização de cores e fontes</li>
+                            <li>Opção de música</li>
+                            <li>Arquivo HTML para guardar e compartilhar</li>
+                        </ul>
+                    </div>
+                    <div class="price-side">
+                        <div class="small">valor por presente</div>
+                        <div class="price">R$ 14,90</div>
+                        <div class="small">pagamento único</div><a class="btn" href="./index.html">Criar meu
+                            presente <span aria-hidden="true">♡</span></a>
+                        <p class="fineprint">Você monta e visualiza antes de finalizar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content" style="padding-top:0">
+            <div class="wrap faq">
+                <div class="section-head">
+                    <h2>Ficou com alguma dúvida?</h2>
+                </div>
+                <details>
+                    <summary>Preciso instalar algum aplicativo?</summary>
+                    <p>Não. O criador funciona pelo navegador. Para a melhor experiência, use um navegador atualizado.
+                    </p>
+                </details>
+                <details>
+                    <summary>Posso colocar minhas próprias fotos?</summary>
+                    <p>Sim. Você pode adicionar até 10 fotos e incluir uma legenda em cada uma.</p>
+                </details>
+                <details>
+                    <summary>Preciso saber programar?</summary>
+                    <p>Não. Você personaliza o presente por meio do criador, sem precisar escrever código.</p>
+                </details>
+                <details>
+                    <summary>Como recebo o presente depois do pagamento?</summary>
+                    <p>A entrega automática ainda está sendo configurada. Não finalize uma compra até que o checkout e a
+                        liberação do arquivo estejam oficialmente ativos.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="wrap footer-row">
+            <div>
+                <div class="footer-brand">♡ Meu Cantinho</div>
+                <div>Presentes digitais feitos com carinho.</div>
+            </div><a href="./index.html">Voltar ao criador ↗</a>
+        </div>
+    </footer>
+</body>
+
+</html>
